@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* globals.css
+   Tailwind v4 configura la marca directamente en CSS con @theme,
+   en vez de un tailwind.config.ts separado. Cada variable --color-*,
+   --font-* genera automáticamente sus utilidades (bg-navy-900, font-display, etc).
+   Esto reemplaza uno a uno lo que antes estaba en tailwind.config.ts. */
+@theme {
+  /* Azul noche: color primario de marca (header, footer, textos fuertes) */
+  --color-navy-50: #EEF1F7;
+  --color-navy-100: #D7DEEC;
+  --color-navy-400: #3A4E7A;
+  --color-navy-600: #22335A;
+  --color-navy-900: #001237;
+
+  /* Verde azulado: color secundario (links, estados hover, badges info) */
+  --color-teal-400: #3FC1CB;
+  --color-teal-500: #0FA3B1;
+  --color-teal-600: #0B7E89;
+
+  /* Ámbar: único color reservado para llamadas a la acción y descuentos */
+  --color-amber-400: #FA7436;
+  --color-amber-500: #FA7436;
+
+  --color-cream: #FAFAF7;
+  --color-ink: #1B1B1B;
+
+  /* Tipografías de marca: cargadas como variables CSS por next/font en layout.tsx */
+  --font-display: var(--font-display-src), sans-serif;
+  --font-body: var(--font-body-src), sans-serif;
+  --font-mono: var(--font-mono-src), monospace;
+}
+
+/* Ajustes base + utilidades pequeñas que no vale la pena resolver
+   con clases de Tailwind repetidas en cada componente. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+/* Oculta la scrollbar del carrusel de productos manteniendo el scroll funcional */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Foco visible y accesible para navegación por teclado en toda la app */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 2px;
+}
+
+/* Respeta la preferencia del usuario de reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
