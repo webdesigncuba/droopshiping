@@ -32,7 +32,7 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NEXTDROOP",
+  title: "NEXDROOP",
   description:
     "Plataforma de venta online con electrónica, moda, hogar, deportes y más. Envíos rápidos y ofertas reales.",
 };

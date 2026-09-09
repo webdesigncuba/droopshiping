@@ -71,30 +71,32 @@ export default function Header() {
         </form>
 
         {/* Carrito */}
-        <button
-          type="button"
-          onClick={toggleCart}
-          aria-label={`Carrito de compras, ${totalCount} productos`}
-          className="relative ml-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-navy-100 bg-white transition-colors hover:border-teal-500 sm:ml-0"
-        >
-          <ShoppingCart size={19} className="text-navy-900" />
-          {totalCount > 0 && (
-            <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 font-mono text-[11px] font-bold text-navy-900">
-              {totalCount}
-            </span>
-          )}
-        </button>
+        <div className="ml-auto flex items-center gap-2 sm:ml-4">
+          <button
+            type="button"
+            onClick={toggleCart}
+            aria-label={`Carrito de compras, ${totalCount} productos`}
+            className="relative ml-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-navy-100 bg-white transition-colors hover:border-teal-500 sm:ml-0"
+          >
+            <ShoppingCart size={19} className="text-navy-900" />
+            {totalCount > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 font-mono text-[11px] font-bold text-navy-900">
+                {totalCount}
+              </span>
+            )}
+          </button>
 
-        {/* Botón de menú móvil */}
-        <button
-          type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-100 bg-white md:hidden"
-          aria-label="Abrir menú de navegación"
-          aria-expanded={mobileMenuOpen}
-          onClick={() => setMobileMenuOpen((open) => !open)}
-        >
-          {mobileMenuOpen ? <X size={19} /> : <Menu size={19} />}
-        </button>
+          {/* Botón de menú móvil */}
+          <button
+            type="button"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-100 bg-white md:hidden"
+            aria-label="Abrir menú de navegación"
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+          >
+            {mobileMenuOpen ? <X size={19} /> : <Menu size={19} />}
+          </button>
+        </div>
       </div>
 
       {/* Menú móvil desplegable */}
